@@ -1,0 +1,1 @@
+sudo -E mn --custom /home/amirs97/onos/tools/dev/mininet/bmv2.py --switch onosbmv2 --controller=remote,ip=131.130.124.83,port=8101 --topo mytopo --pin
