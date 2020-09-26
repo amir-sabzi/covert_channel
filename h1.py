@@ -37,7 +37,7 @@ def main():
         time_difference = stop_time - start_time
         intervals.append(time_difference)
         file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")4
+        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
     avg_round_time = sum(intervals) / len(intervals)
     file.write("---------------------------------\n")
     file.write("Average round duration is: " + str(avg_round_time) +  "\n")
