@@ -12,10 +12,10 @@ from variables import *
 
 def main():
     print "Calculatiing Timeout"
-    output = Popen("ping 10.0.0.1 -c 10",stdout=PIPE,shell=True)
-    string = output.communicate()[0]
-    splitted = string.split('/')
-    timeout = 0.001 * float(splitted[4]) * 40
+    #output = Popen("ping 10.0.0.1 -c 10",stdout=PIPE,shell=True)
+    #string = output.communicate()[0]
+    #splitted = string.split('/')
+    #timeout = 0.001 * float(splitted[4]) * 40
     timeout = 0.05
     print "Timeout is: " + str(timeout)
     print "waiting"
