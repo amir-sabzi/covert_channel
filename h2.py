@@ -16,7 +16,7 @@ def main():
     string = output.communicate()[0]
     splitted = string.split('/')
     timeout = 0.001 * float(splitted[4]) * 40
-    timeout = 0.03
+    timeout = 0.05
     print "Timeout is: " + str(timeout)
     print "waiting"
     while True:
@@ -26,23 +26,28 @@ def main():
     recv_array = []
     cmd = "timeout " + str(timeout) + " ping 10.0.0.1 -c 1 || echo Failed"
     k = 0
+    file = open("/home/sdn/covert_channel/h2_log.txt", "w")
     for i in range(message_length):
-	start_time=time.time()
+	    start_time=time.time()
         print "Round" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
+        file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
         time.sleep(delta_s)
+        file.write("---" + "Tried to check received bit at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         output = Popen(cmd,stdout=PIPE,shell=True)
         response = output.communicate()[0]
         if response == 'Failed\n':
             recv_array.append('1')
-            print "1"
+            file.write("---" + "The received bit detected and it is \"1\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         else:
             recv_array.append('0')
-            print("0")
+            file.write("---" + "The received bit detected and it is \"0\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_r + delta_p)
-	stop_time = time.time()
-	time_difference = stop_time - start_time
-	print "elapsed time" + str(time_difference) 
+        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+	    stop_time = time.time()
+	    time_difference = stop_time - start_time
+        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
+    file.close()
     print "Received Bitstring"
     print recv_array
     print "Sended Bitstring"
