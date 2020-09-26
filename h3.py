@@ -18,6 +18,7 @@ def main():
     print "running"
     k = 0
     file = open("/home/sdn/covert_channel/h3_log.txt", "w")
+    intervals=[]
     for element in binary_array:
         start_time=time.time()
         print "Round" + str(k) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
@@ -32,8 +33,13 @@ def main():
         time.sleep(delta_s + delta_r + delta_p)
         stop_time = time.time()
         time_difference = stop_time - start_time
+        intervals.append(time_difference)
+        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
-
+    avg_round_time = sum(intervals) / len(intervals)
+    file.write("---------------------------------\n")
+    file.write("Average round duration is: " + str(avg_round_time)+ "\n")
+    file.close()
 
 if __name__ == '__main__':
     main()

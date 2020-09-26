@@ -26,6 +26,7 @@ def main():
     recv_array = []
     cmd = "timeout " + str(timeout) + " ping 10.0.0.1 -c 1 || echo Failed"
     k = 0
+    intervals=[]
     file = open("/home/sdn/covert_channel/h2_log.txt", "w")
     for i in range(message_length):
         start_time=time.time()
@@ -43,10 +44,14 @@ def main():
             recv_array.append('0')
             file.write("---" + "The received bit detected and it is \"0\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_r + delta_p)
-        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         stop_time = time.time()
         time_difference = stop_time - start_time
+        intervals.append(time_difference)
+        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
+    avg_round_time = sum(intervals) / len(intervals)
+    file.write("---------------------------------\n")
+    file.write("Average round duration is: " + str(avg_round_time)+ "\n")
     file.close()
     print "Received Bitstring"
     print recv_array

@@ -20,8 +20,9 @@ def main():
     timeout = 0.1
     cmd = "timeout 0.1 ping 10.0.0.2 -c 1"
     k = 0
+    intervals = []
     for i in range(message_length):
-        start=time.time()
+        start_time=time.time()
         print "Round" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
@@ -31,10 +32,15 @@ def main():
         response = output.communicate()[0]
         file.write("---" + "flow reconfiguration considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_p)
-        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_p)
-        stop=time.time()
-        file.write("---" + "Round" + str(k) + "taken time: " + str(stop-start) + "\n")
+        stop_time=time.time()
+        time_difference = stop_time - start_time
+        intervals.append(time_difference)
+        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")4
+    avg_round_time = sum(intervals) / len(intervals)
+    file.write("---------------------------------\n")
+    file.write("Average round duration is: " + str(avg_round_time) +  "\n")
     file.close()
 if __name__ == '__main__':
     main()

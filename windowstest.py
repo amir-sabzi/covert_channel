@@ -1,6 +1,12 @@
 import ntplib 
 import time
-from datetime import datetime, timezone
+
+
+a = [5, 4, 3, 9.215454]
+avg = sum(a) / len(a)
+print(avg)
+
+'''from datetime import datetime, timezone
 c = ntplib.NTPClient()
 #file = open("C:\\Users\\Amir Sabzi\\Desktop\\covert_channel\\covert_channel\\testlog.txt", "w")
 #file = open("/home/amirs97/covert_channel/testlog.txt", "w")
@@ -9,6 +15,6 @@ for i in range(1):
     print(datetime.fromtimestamp(c.request('0.au.pool.ntp.org', version=3).tx_time).strftime("%S:%f")[:-3])
     finish = time.time()
     print(finish-start)
-#file.close()
+#file.close()'''
 
 
