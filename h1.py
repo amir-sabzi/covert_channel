@@ -3,7 +3,6 @@ import socket
 import random
 import struct
 import time
-from datetime import datetime, timezone
 from subprocess import Popen, PIPE
 from scapy.all import *
 import shlex
