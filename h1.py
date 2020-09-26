@@ -17,7 +17,7 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    timeout = 0.03
+    timeout = 0.1
     cmd = "timeout 0.1 ping 10.0.0.2 -c 1"
     k = 0
     for i in range(message_length):
