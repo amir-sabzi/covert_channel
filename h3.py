@@ -19,7 +19,7 @@ def main():
     k = 0
     file = open("/home/sdn/covert_channel/h3_log.txt", "w")
     for element in binary_array:
-	    start_time=time.time()
+        start_time=time.time()
         print "Round" + str(k) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1

@@ -28,7 +28,7 @@ def main():
     k = 0
     file = open("/home/sdn/covert_channel/h2_log.txt", "w")
     for i in range(message_length):
-	    start_time=time.time()
+        start_time=time.time()
         print "Round" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
@@ -44,8 +44,8 @@ def main():
             file.write("---" + "The received bit detected and it is \"0\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_r + delta_p)
         file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-	    stop_time = time.time()
-	    time_difference = stop_time - start_time
+        stop_time = time.time()
+        time_difference = stop_time - start_time
         file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
     file.close()
     print "Received Bitstring"
