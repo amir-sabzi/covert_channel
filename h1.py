@@ -18,7 +18,7 @@ def main():
             break
     print "running"
     timeout = 0.1
-    cmd = "timeout 0.01 ping 10.0.0.2 -c 1"
+    cmd = "timeout 0.02 ping 10.0.0.2 -c 1"
     k = 0
     intervals = []
     for i in range(message_length):
