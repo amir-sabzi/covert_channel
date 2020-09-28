@@ -35,6 +35,7 @@ def main():
         phase3_finish = time.time()
         phase3_delay = phase3_finish - phase3_start
         file.write("---" + "(P3)Phase-3 delay is: " + str(phase3_delay) + "\n")
+        print phase3_delay
         time.sleep(delta_p - phase3_delay)
         stop_time=time.time()
         time_difference = stop_time - start_time
