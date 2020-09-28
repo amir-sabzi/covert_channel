@@ -46,6 +46,7 @@ def main():
             file.write("---" + "The received bit detected and it is \"0\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
+        print phase2_delay
         time.sleep(delta_r - phase2_delay + delta_p)
         stop_time = time.time()
         time_difference = stop_time - start_time

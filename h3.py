@@ -32,6 +32,7 @@ def main():
             file.write("---" + "Tried to send bit \"0\" at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         phase1_finish = time.time()
         phase1_delay = phase1_finish - phase1_start
+        print phase1_delay
         file.write("---" + "Sending bit considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_s + delta_r + delta_p - phase1_delay)
         stop_time = time.time()
