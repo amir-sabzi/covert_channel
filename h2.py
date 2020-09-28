@@ -34,7 +34,8 @@ def main():
         file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
         time.sleep(delta_s)
-        file.write("---" + "Tried to check received bit at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        phase2_start = time.time()
+        file.write("---" + "(P2)Tried to check received bit at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         output = Popen(cmd,stdout=PIPE,shell=True)
         response = output.communicate()[0]
         if response == 'Failed\n':
@@ -43,7 +44,9 @@ def main():
         else:
             recv_array.append('0')
             file.write("---" + "The received bit detected and it is \"0\": " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        time.sleep(delta_r + delta_p)
+        phase2_finish = time.time()
+        phase2_delay = phase2_finish - phase2_start
+        time.sleep(delta_r - phase2_delay + delta_p)
         stop_time = time.time()
         time_difference = stop_time - start_time
         intervals.append(time_difference)

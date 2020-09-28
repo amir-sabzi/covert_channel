@@ -23,21 +23,24 @@ def main():
     intervals = []
     for i in range(message_length):
         start_time=time.time()
-        print "Round" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
-        file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        print "Round-" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
+        file.write("Round-" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
         time.sleep(delta_s + delta_r)
-        file.write("---" + "tried to redefine flows on the switch at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        phase3_start = time.time()
+        file.write("---" + "(P3)tried to redefine flows on the switch at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         output = Popen(cmd,stdout=PIPE,shell=True)
         response = output.communicate()[0]
-        file.write("---" + "flow reconfiguration considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        time.sleep(delta_p)
-        time.sleep(delta_p)
+        file.write("---" + "(P3)flow reconfiguration considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        phase3_finish = time.time()
+        phase3_delay = phase3_finish - phase3_start
+        file.write("---" + "(P3)Phase-3 delay is: " + str(phase3_delay) + "\n")
+        time.sleep(delta_p - phase3_delay)
         stop_time=time.time()
         time_difference = stop_time - start_time
         intervals.append(time_difference)
-        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
+        file.write("---" + "Round-" + str(k) + " is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        file.write("---" + "Round-" + str(k) + " taken time: " + str(time_difference) + "\n")
     avg_round_time = sum(intervals) / len(intervals)
     file.write("---------------------------------\n")
     file.write("Average round duration is: " + str(avg_round_time) +  "\n")

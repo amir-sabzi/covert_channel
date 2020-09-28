@@ -24,13 +24,16 @@ def main():
         print "Round" + str(k) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         k = k + 1
+        phase1_start = time.time()
         if element == '1':
             file.write("---" + "Tried to send bit \"1\" at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
             ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.3"),timeout=0.05)
         else:
             file.write("---" + "Tried to send bit \"0\" at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        phase1_finish = time.time()
+        phase1_delay = phase1_finish - phase1_start
         file.write("---" + "Sending bit considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        time.sleep(delta_s + delta_r + delta_p)
+        time.sleep(delta_s + delta_r + delta_p - phase1_delay)
         stop_time = time.time()
         time_difference = stop_time - start_time
         intervals.append(time_difference)
