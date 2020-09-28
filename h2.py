@@ -16,7 +16,7 @@ def main():
     #string = output.communicate()[0]
     #splitted = string.split('/')
     #timeout = 0.001 * float(splitted[4]) * 40
-    timeout = 0.05
+    timeout = 0.04
     print "Timeout is: " + str(timeout)
     print "waiting"
     while True:
