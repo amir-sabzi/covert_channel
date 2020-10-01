@@ -12,40 +12,37 @@ from variables import *
 
 def main():
     print "waiting"
-    file = open("/home/sdn/covert_channel/h1_log.txt", "w")
     while True:
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    timeout = 0.1
-    cmd = "timeout 0.01 ping 10.0.0.2 -c 1"
+    cmd = "ping 10.0.0.2 -c 3"
     k = 0
     intervals = []
+    new = open("/home/sdn/covert_channel/covert_channel/Two_malicious_hosts/new_flow_delay.txt", "w")
+    old = open("/home/sdn/covert_channel/covert_channel/Two_malicious_hosts/existed_flow_delay.txt", "w")
     for i in range(message_length):
-        start_time=time.time()
-        print "Round-" + str(k) + " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
-        file.write("Round-" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        k = k + 1
-        time.sleep(delta_s + delta_r)
-        phase3_start = time.time()
-        file.write("---" + "(P3)tried to redefine flows on the switch at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        time.sleep(delta_1)
+        phase2_start = time.time()
         output = Popen(cmd,stdout=PIPE,shell=True)
-        response = output.communicate()[0]
-        file.write("---" + "(P3)flow reconfiguration considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        string = output.communicate()[0]
+        splitted = string.split('/')
+        new.write(splitted[4] + "\n")
+        phase2_finish = time.time()
+        phase2_delay = phase2_finish - phase2_start
+        time.sleep(delta_2 - phase2_delay)
+
+        phase3_start = time.time()
+        output = Popen(cmd,stdout=PIPE,shell=True)
+        string = output.communicate()[0]
+        splitted = string.split('/')
+        old.write(splitted[4] + "\n")
         phase3_finish = time.time()
         phase3_delay = phase3_finish - phase3_start
-        file.write("---" + "(P3)Phase-3 delay is: " + str(phase3_delay) + "\n")
-        print phase3_delay
-        time.sleep(delta_p - phase3_delay)
-        stop_time=time.time()
-        time_difference = stop_time - start_time
-        intervals.append(time_difference)
-        file.write("---" + "Round-" + str(k) + " is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        file.write("---" + "Round-" + str(k) + " taken time: " + str(time_difference) + "\n")
-    avg_round_time = sum(intervals) / len(intervals)
-    file.write("---------------------------------\n")
-    file.write("Average round duration is: " + str(avg_round_time) +  "\n")
-    file.close()
+        time.sleep(delta_3 - phase3_delay)
+
+    new.close()
+    old.close()
 if __name__ == '__main__':
     main()
 

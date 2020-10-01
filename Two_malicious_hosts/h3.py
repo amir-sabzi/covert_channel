@@ -16,34 +16,16 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    k = 0
-    file = open("/home/sdn/covert_channel/h3_log.txt", "w")
+    cmd = "nping --source-mac 00:00:00:00:00:01 -S 10.0.0.1 10.0.0.2 -c 1"
     intervals=[]
-    for element in binary_array:
-        start_time=time.time()
-        print "Round" + str(k) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
-        file.write("Round" + str(k) + " is started at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        k = k + 1
-        phase1_start = time.time()
-        if element == '1':
-            file.write("---" + "Tried to send bit \"1\" at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-            ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.3"),timeout=0.05)
-        else:
-            file.write("---" + "Tried to send bit \"0\" at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        phase1_finish = time.time()
+    for i in range(sample_num):
+        phase1_start=time.time()
+        print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
+        output = Popen(cmd,stdout=PIPE,shell=True)
+        response = output.communicate()[0]
+        phase1_finish=time.time()
         phase1_delay = phase1_finish - phase1_start
-        print phase1_delay
-        file.write("---" + "Sending bit considered DONE! at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        time.sleep(delta_s + delta_r + delta_p - phase1_delay)
-        stop_time = time.time()
-        time_difference = stop_time - start_time
-        intervals.append(time_difference)
-        file.write("---" + "Round" + str(k) + "is finished at: " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        file.write("---" + "Round" + str(k) + "taken time: " + str(time_difference) + "\n")
-    avg_round_time = sum(intervals) / len(intervals)
-    file.write("---------------------------------\n")
-    file.write("Average round duration is: " + str(avg_round_time)+ "\n")
-    file.close()
+        time.sleep(delta_1 + delta_2 + delta_3 - phase1_delay)
 
 if __name__ == '__main__':
     main()
