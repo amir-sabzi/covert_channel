@@ -19,8 +19,8 @@ def main():
     cmd = "ping 10.0.0.2 -c 3"
     k = 0
     intervals = []
-    new = open("/home/sdn/covert_channel/Two_malicious_hosts/new_flow_delay.txt", "w")
-    old = open("/home/sdn/covert_channel/Two_malicious_hosts/existed_flow_delay.txt", "w")
+    new = open("/home/amirs97/covert_channel/Two_malicious_hosts/new_flow_delay.txt", "w")
+    old = open("/home/amirs97/covert_channel/Two_malicious_hosts/existed_flow_delay.txt", "w")
     for i in range(sample_num):
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         time.sleep(delta_1)
