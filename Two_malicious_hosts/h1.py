@@ -3,10 +3,10 @@ import socket
 import random
 import struct
 import time
-import datetime
 from subprocess import Popen, PIPE
 from scapy.all import *
 import shlex
+import datetime
 from variables import *
 
 
