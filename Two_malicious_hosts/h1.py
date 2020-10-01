@@ -21,7 +21,8 @@ def main():
     intervals = []
     new = open("/home/sdn/covert_channel/covert_channel/Two_malicious_hosts/new_flow_delay.txt", "w")
     old = open("/home/sdn/covert_channel/covert_channel/Two_malicious_hosts/existed_flow_delay.txt", "w")
-    for i in range(message_length):
+    for i in range(sample_num):
+        print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         time.sleep(delta_1)
         phase2_start = time.time()
         output = Popen(cmd,stdout=PIPE,shell=True)
