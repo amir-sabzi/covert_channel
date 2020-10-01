@@ -31,6 +31,7 @@ def main():
         new.write(splitted[4] + "\n")
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
+        print phase2_delay
         time.sleep(delta_2 - phase2_delay)
 
         phase3_start = time.time()
@@ -40,6 +41,7 @@ def main():
         old.write(splitted[4] + "\n")
         phase3_finish = time.time()
         phase3_delay = phase3_finish - phase3_start
+        print phase3_delay
         time.sleep(delta_3 - phase3_delay)
 
     new.close()
