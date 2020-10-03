@@ -16,7 +16,7 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "nping --source-mac 00:00:00:00:00:01 -S 10.0.0.1 10.0.0.2 -c 1"
+    cmd = "timeout 0.4 nping --source-mac 00:00:00:00:00:01 -S 10.0.0.1 10.0.0.2 -c 1"
     intervals=[]
     for i in range(sample_num):
         phase1_start=time.time()
