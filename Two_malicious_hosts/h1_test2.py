@@ -16,8 +16,8 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "ping 10.0.0.2 -c 1"
-    cmd_omitted = "timeout 0.01 ping 10.0.0.2 -c 1"
+    cmd = "timeout 0.05 ping 10.0.0.2 -c 1"
+    cmd_omitted = "timeout 0.05 ping 10.0.0.2 -c 1"
     k = 0
     intervals = []
     new = open("/home/amirs97/covert_channel/Two_malicious_hosts/secondPing_delay.txt", "w")
