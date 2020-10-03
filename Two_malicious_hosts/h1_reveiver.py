@@ -34,9 +34,12 @@ def main():
             print
             if float(splitted[4])  > 6 :
                 recv_array.append('1')
+                print 1
             else:
+                print 0
                 recv_array.append('0')
         else:
+            print "nan"
             recv_array.append('NAN')
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
