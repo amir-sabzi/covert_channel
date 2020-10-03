@@ -41,6 +41,10 @@ def main():
         phase2_delay = phase2_finish - phase2_start
         print phase2_delay
         time.sleep(delta_2 - phase2_delay)
+    print "Received Bitstring"
+    print recv_array
+    print "Sended Bitstring"
+    print send_array
     counter = 0
     for i in range(message_length):
         if recv_array[i] != send_array[i]:
