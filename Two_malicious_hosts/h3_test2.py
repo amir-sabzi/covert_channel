@@ -20,9 +20,10 @@ def main():
     intervals=[]
     for i in range(sample_num):
         phase1_start=time.time()
-        print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
-        output = Popen(cmd,stdout=PIPE,shell=True)
-        response = output.communicate()[0]
+        #print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
+        #output = Popen(cmd,stdout=PIPE,shell=True)
+        #response = output.communicate()[0]
+        ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=0.05)
         phase1_finish=time.time()
         phase1_delay = phase1_finish - phase1_start
         time.sleep(delta_1 + delta_2 + delta_3 - phase1_delay)
