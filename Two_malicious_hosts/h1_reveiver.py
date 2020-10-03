@@ -16,14 +16,14 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "timeout 0.06 ping 10.0.0.2 -c 1"
+    cmd = "timeout 0.08 ping 10.0.0.2 -c 1"
     cmd_omitted = "timeout 0.03 ping 10.0.0.2 -c 1"
     k = 0
     intervals = []
     recv_array = []
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/receiver_log.txt", "w")
     for i in range(message_length):
-        print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
+        print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         time.sleep(delta_1)
         phase2_start = time.time()
         output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
