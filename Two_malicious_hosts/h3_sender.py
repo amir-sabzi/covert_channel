@@ -22,7 +22,7 @@ def main():
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/sender_log.txt", "w")
     for element in send_array:
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
-        log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f'))
+        log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         phase1_start=time.time()
         #print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         #output = Popen(cmd,stdout=PIPE,shell=True)

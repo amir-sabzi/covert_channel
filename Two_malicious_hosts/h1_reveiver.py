@@ -24,7 +24,7 @@ def main():
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/receiver_log.txt", "w")
     for i in range(message_length):
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
-        log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f'))
+        log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_1)
         phase2_start = time.time()
         output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
