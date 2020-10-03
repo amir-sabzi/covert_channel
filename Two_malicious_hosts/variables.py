@@ -1,4 +1,4 @@
-delta_1 = 0.07
-delta_2 = 0.07
-delta_3 = 0.06
-sample_num = 1000
+delta_1 = 0.08
+delta_2 = 0.08
+delta_3 = 0.08
+sample_num = 500
