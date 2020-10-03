@@ -35,9 +35,7 @@ def main():
             print
             if float(splitted[4])  > 7 :
                 recv_array.append('1')
-                print 1
             else:
-                print 0
                 recv_array.append('0')
         else:
             print "nan"
@@ -54,6 +52,7 @@ def main():
     for i in range(message_length):
         if recv_array[i] != send_array[i]:
             counter = counter + 1
+            print "sended: " + send_array[i] ", but received: " + recv_array[i] + "\n"
     error_ratio = float(counter)/float(message_length)
     print "Error ratio is: " + str(error_ratio)
     log.close()
