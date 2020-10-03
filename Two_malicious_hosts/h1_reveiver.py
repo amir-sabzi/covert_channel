@@ -31,7 +31,8 @@ def main():
         string = output.communicate()[0]
         splitted = string.split('/')
         if len(splitted)> 4:
-            if float(splitted[4] > 6):
+            print
+            if float(splitted[4])  > 6 :
                 recv_array.append('1')
             else:
                 recv_array.append('0')
