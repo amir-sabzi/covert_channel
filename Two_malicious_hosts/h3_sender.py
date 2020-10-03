@@ -16,7 +16,7 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "timeout 0.01 nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
+    cmd = "timeout 0.02 nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
     intervals=[]
     i = 0
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/sender_log.txt", "w")
