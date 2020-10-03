@@ -27,8 +27,8 @@ def main():
         #print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         #output = Popen(cmd,stdout=PIPE,shell=True)
         if element == '1':
-            output = Popen(cmd,stdout=PIPE,shell=True)
-            #srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=0)
+            #output = Popen(cmd,stdout=PIPE,shell=True)
+            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=0)
         phase1_finish=time.time()
         phase1_delay = phase1_finish - phase1_start
         print phase1_delay
