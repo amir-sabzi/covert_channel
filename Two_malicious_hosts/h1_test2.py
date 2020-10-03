@@ -16,15 +16,17 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "ping 10.0.0.2 -c 3"
+    cmd = "ping 10.0.0.2 -c 1"
+    cmd_omitted = "timeout 0.01 ping 10.0.0.2 -c 1"
     k = 0
     intervals = []
-    new = open("/home/amirs97/covert_channel/Two_malicious_hosts/new_flow_delay.txt", "w")
-    old = open("/home/amirs97/covert_channel/Two_malicious_hosts/existed_flow_delay.txt", "w")
+    new = open("/home/amirs97/covert_channel/Two_malicious_hosts/secondPing_delay.txt", "w")
+    old = open("/home/amirs97/covert_channel/Two_malicious_hosts/thirdPing_delay.txt", "w")
     for i in range(sample_num):
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         time.sleep(delta_1)
         phase2_start = time.time()
+        output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
@@ -35,6 +37,7 @@ def main():
         time.sleep(delta_2 - phase2_delay)
 
         phase3_start = time.time()
+        output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
