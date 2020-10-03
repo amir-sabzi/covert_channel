@@ -19,8 +19,10 @@ def main():
     cmd = "timeout 0.04 nping --source-mac 00:00:00:00:00:01 -S 10.0.0.1 10.0.0.2 -c 1"
     intervals=[]
     i = 0
+    log = open("/home/amirs97/covert_channel/Two_malicious_hosts/sender_log.txt", "w")
     for element in send_array:
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
+        log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f'))
         phase1_start=time.time()
         #print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S')
         #output = Popen(cmd,stdout=PIPE,shell=True)
@@ -30,7 +32,8 @@ def main():
         phase1_delay = phase1_finish - phase1_start
         print phase1_delay
         time.sleep(delta_1 + delta_2 - phase1_delay)
-
+        i = i + 1
+    log.close()
 if __name__ == '__main__':
     main()
 
