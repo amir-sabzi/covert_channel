@@ -30,7 +30,7 @@ def main():
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
-        if len(splitted > 4):
+        if len(splitted)> 4:
             new.write(splitted[4] + "\n")
         else:
             new.write("NAN" + "\n")
@@ -44,7 +44,7 @@ def main():
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
-        if len(splitted > 4):
+        if len(splitted)> 4:
             old.write(splitted[4] + "\n")
         else:
             old.write("NAN" + "\n")
