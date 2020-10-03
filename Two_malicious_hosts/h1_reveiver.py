@@ -33,7 +33,7 @@ def main():
         splitted = string.split('/')
         if len(splitted)> 4:
             print
-            if float(splitted[4])  > 6 :
+            if float(splitted[4])  > 7 :
                 recv_array.append('1')
                 print 1
             else:
