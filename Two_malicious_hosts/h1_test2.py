@@ -30,7 +30,10 @@ def main():
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
-        new.write(splitted[4] + "\n")
+        if len(splitted > 4):
+            new.write(splitted[4] + "\n")
+        else:
+            new.write("NAN" + "\n")
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
         print phase2_delay
@@ -41,7 +44,10 @@ def main():
         output = Popen(cmd,stdout=PIPE,shell=True)
         string = output.communicate()[0]
         splitted = string.split('/')
-        old.write(splitted[4] + "\n")
+        if len(splitted > 4):
+            old.write(splitted[4] + "\n")
+        else:
+            old.write("NAN" + "\n")
         phase3_finish = time.time()
         phase3_delay = phase3_finish - phase3_start
         print phase3_delay
