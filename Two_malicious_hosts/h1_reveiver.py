@@ -52,7 +52,7 @@ def main():
     for i in range(message_length):
         if recv_array[i] != send_array[i]:
             counter = counter + 1
-            print "sended: " + send_array[i] + ", but received: " + recv_array[i] + "\n"
+            print "At round: " + str(i) + " sended: " + send_array[i] + ", but received: " + recv_array[i] + "\n"
     error_ratio = float(counter)/float(message_length)
     print "Error ratio is: " + str(error_ratio)
     log.close()
