@@ -31,8 +31,8 @@ def main():
         phase1_finish=time.time()
         phase1_delay = phase1_finish - phase1_start
         print phase1_delay
-        time.sleep(delta_2 - phase1_delay)
-        time.sleep(delta_1)
+        time.sleep(delta_1 - phase1_delay)
+        time.sleep(delta_2)
         i = i + 1
     log.close()
 if __name__ == '__main__':
