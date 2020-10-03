@@ -16,7 +16,7 @@ def main():
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd = "timeout 0.05 ping 10.0.0.2 -c 1"
+    cmd = "timeout 0.03 ping 10.0.0.2 -c 1"
     cmd_omitted = "timeout 0.01 ping 10.0.0.2 -c 1"
     k = 0
     intervals = []
