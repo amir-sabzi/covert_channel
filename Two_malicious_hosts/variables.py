@@ -4,7 +4,7 @@ delta_1 = 0.08
 delta_2 = 0.045
 byte_num = 50
 message_length = (byte_num + 1) * 8
-a = "Neyd1gFw1pitrZq30ud040qLr2SvfTPTXQO6Z4y9qct4TUQ6Rn"
+a = "gPet4gD4hDjuTKkAP25iKLDBjHefd2zk0qtksQcd9RAiDhe5ism7zj8jGNLN86i6z58oXaMnOzXn42NS7r8H0Pjf3KAF2s04bMJcjK9PH7QahULBbwD9c8fZCpwlwtwg"
 b = [ord(i) for i in a] 
 c = ['1' + '{0:07b}'.format(i) for i in b]
 c.append('00000000')
