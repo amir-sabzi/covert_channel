@@ -52,7 +52,7 @@ def main():
                 print "End of Massage Recieved"
                 break
             else:
-                recv_message = recv_message + char(int(temp[1:],2))
+                recv_message = recv_message + str(unichr(int(temp[1:],2)))
                 temp = ""
                 k = 0
         phase2_finish = time.time()
