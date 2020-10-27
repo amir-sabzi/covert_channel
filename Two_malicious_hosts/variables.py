@@ -2,9 +2,9 @@ import random
 import string 
 delta_1 = 0.07
 delta_2 = 0.03
-byte_num = 128
+byte_num = 5
 message_length = (byte_num + 1) * 8
-a = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(byte_num))
+a = "olobx"
 b = [ord(i) for i in a] 
 c = ['1' + '{0:07b}'.format(i) for i in b]
 c.append('00000000')
