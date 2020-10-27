@@ -4,7 +4,7 @@ fileID = fopen('secondPing_delay.txt','r');
 formatSpec = '%f';
 new_flows = fscanf(fileID,formatSpec);
 temp = new_flows;
-indices = find(temp>10);
+indices = find(temp>14);
 temp(indices) = [];
 m = mean(temp);
 for i = 1:length(new_flows)
@@ -20,4 +20,16 @@ hold on
 nbins = 75;
 h2 = histfit(existed_flows,nbins)
 grid on;
-legend('Histogram of RTT for New Flows','Histogram of RTT for Existed Flows')
+xlabel('{RTT of packets (ms)}','interpreter','latex','FontSize',15)
+%% 
+clear all
+close all
+
+T = 0:0.01:10;
+P_e =0.5 * ( qfunc((T-0.85447)/0.900146) + qfunc(-(T-9.52961)/0.696024) );
+plot(T,P_e);
+hold on
+[m,I] = min(P_e);
+xline(T(I))
+xlabel('{Threshold Value}','interpreter','latex','FontSize',15);
+ylabel('{Error Probability}','interpreter','latex','FontSize',15);
