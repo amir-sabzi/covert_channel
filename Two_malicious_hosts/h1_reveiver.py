@@ -22,7 +22,10 @@ def main():
     intervals = []
     recv_array = []
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/receiver_log.txt", "w")
-    for i in range(message_length):
+    i = 0
+    k = 0
+    temp = ""
+    while True:
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(delta_1)
@@ -35,15 +38,25 @@ def main():
             print
             if float(splitted[4])  > 7 :
                 recv_array.append('1')
+                temp = temp + "1"
             else:
                 recv_array.append('0')
+                temp = temp + "0"
         else:
             print "nan"
             recv_array.append('NAN')
+        k = k + 1
+        if k == 7:
+            if(temp == "0000000"):
+                break
+            else:
+                temp = ""
+                k = 0
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
         print phase2_delay
         time.sleep(delta_2 - phase2_delay)
+        i = i + 1
     print "Received Bitstring"
     print recv_array
     print "Sended Bitstring"

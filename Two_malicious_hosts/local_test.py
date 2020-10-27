@@ -12,3 +12,8 @@ d = [list(i) for i in c]
 #print d
 flat_list = [item for sublist in d for item in sublist]
 #print flat_list
+temp = ""
+for i in range(7):
+    temp = temp + "0"
+if (temp == "0000000"):
+    print "true"
