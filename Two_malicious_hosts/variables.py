@@ -5,7 +5,7 @@ delta_2 = 0.045
 byte_num = 4
 message_length = (byte_num + 1) * 8
 sent_message = "gPet"
-b = [ord(i) for i in a] 
+b = [ord(i) for i in sent_message] 
 c = ['1' + '{0:07b}'.format(i) for i in b]
 c.append('00000000')
 d = [list(i) for i in c]
