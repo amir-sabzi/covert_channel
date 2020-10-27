@@ -1,7 +1,7 @@
 import random
 import string 
 delta_1 = 0.07
-delta_2 = 0.03
+delta_2 = 0.04
 byte_num = 5
 message_length = (byte_num + 1) * 8
 a = "olobx"
