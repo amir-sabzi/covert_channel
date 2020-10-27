@@ -25,6 +25,7 @@ def main():
     i = 0
     k = 0
     temp = ""
+    recv_message = ""
     while True:
         print "Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
@@ -46,10 +47,12 @@ def main():
             print "nan"
             recv_array.append('NAN')
         k = k + 1
-        if k == 7:
-            if(temp == "0000000"):
+        if k == 8:
+            if(temp == "10000000"):
+                print "End of Massage Recieved"
                 break
             else:
+                recv_message = recv_message + char(int(temp[1:],2))
                 temp = ""
                 k = 0
         phase2_finish = time.time()
@@ -57,10 +60,11 @@ def main():
         print phase2_delay
         time.sleep(delta_2 - phase2_delay)
         i = i + 1
+    
     print "Received Bitstring"
-    print recv_array
-    print "Sended Bitstring"
-    print send_array
+    print recv_message
+    print "Sent Bitstring"
+    print sent_message
     counter = 0
     for i in range(message_length):
         if recv_array[i] != send_array[i]:
