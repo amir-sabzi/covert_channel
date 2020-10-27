@@ -1,6 +1,6 @@
 import random
 import string
-length = 50
+length = 25
 a = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
 print a 
 b = [ord(i) for i in a] 
