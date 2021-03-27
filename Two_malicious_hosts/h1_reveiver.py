@@ -37,7 +37,7 @@ def main():
         splitted = string.split('/')
         if len(splitted)> 4:
             print
-            if float(splitted[4])  > 7 :
+            if float(splitted[4])  > 9 :
                 recv_array.append('1')
                 temp = temp + "1"
             else:

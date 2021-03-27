@@ -1,6 +1,6 @@
 import random
 import string 
-delta_1 = 0.1
+delta_1 = 0.09
 delta_2 = 0.06
 byte_num = 4
 message_length = (byte_num + 1) * 8
