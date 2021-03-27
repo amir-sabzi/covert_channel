@@ -2,7 +2,7 @@ import random
 import string 
 delta_1 = 0.08
 delta_2 = 0.045
-byte_num = 128
+byte_num = 16
 message_length = (byte_num + 1) * 8
 sent_message = "7bU4ETM9cciphU280pVqr5UFpeRE8BZpEemmSWzEBMzi3Bxt4P9rtQfIdPhlHCNI1CbHV2bey75NK6sZ8MXDgbI7DR6zQF6vHulUPYp2T98Nn7ur99EALdALozDEMKQP"
 b = [ord(i) for i in sent_message] 
