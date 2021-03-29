@@ -56,7 +56,7 @@ def main():
         splitted = string.split('/')
 
         if len(splitted)> 4:
-            cal_log.write("sent_bit:" + callibration_array[i] +  ", delay:"+ splitted[4] +"\n")
+            cal_log.write(callibration_array[i] +  ","+ splitted[4] +"\n")
             if callibration_array[i] ==  '0' :
                 zeros_delay.append(float(splitted[4]))
             else:
@@ -74,7 +74,7 @@ def main():
     print "The Calculated Treshold is: " + str(T)
     err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
     error_ratio = float(err_count)/float(callibration_array_size)
-    
+
     print "Error ratio using this treshold is: " + str(error_ratio)
     log.close()
     cal_log.close()
