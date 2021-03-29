@@ -70,11 +70,11 @@ def main():
         i = i + 1
         if(i >= callibration_array_size):
             break
-    
-    print "The Calculated Treshold is:"
-    print Treshold_cal(ones_delay,zeros_delay)
-    #error_ratio = float(counter)/float(callibration_array_size)
-    #print "Error ratio is: " + str(error_ratio)
+    T = Treshold_cal(ones_delay,zeros_delay)
+    print "The Calculated Treshold is: " + str(T)
+    err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
+    error_ratio = float(err_count)/float(callibration_array_size)
+    print "Error ratio is: " + str(error_ratio)
     log.close()
     cal_log.close()
 if __name__ == '__main__':
