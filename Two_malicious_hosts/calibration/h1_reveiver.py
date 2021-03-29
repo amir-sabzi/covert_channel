@@ -51,7 +51,7 @@ def main():
         print phase2_delay
         time.sleep(calibration_delta_2 - phase2_delay)
         i = i + 1
-        if(i >= callibration_array_size)
+        if(i >= callibration_array_size):
             break
     
     print "Received Bitstring"
