@@ -36,7 +36,7 @@ def main():
         string = output.communicate()[0]
         splitted = string.split('/')
         if len(splitted)> 4:
-        cal_log.write("sent_bit:" + callibration_array[i] +  ", delay:"+ splitted[4] +"\n")
+            cal_log.write("sent_bit:" + callibration_array[i] +  ", delay:"+ splitted[4] +"\n")
             if float(splitted[4])  > 9 :
                 recv_array.append('1')
                 temp = temp + "1"
