@@ -74,7 +74,8 @@ def main():
     print "The Calculated Treshold is: " + str(T)
     err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
     error_ratio = float(err_count)/float(callibration_array_size)
-    print "Error ratio is: " + str(error_ratio)
+    
+    print "Error ratio using this treshold is: " + str(error_ratio)
     log.close()
     cal_log.close()
 if __name__ == '__main__':
