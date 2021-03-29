@@ -12,7 +12,7 @@ import datetime
 from variables import *
 
 def qfunc(x):
-    return 0.5-0.5*sp.erf(x/sqrt(2))
+    return 0.5-0.5*sp.erf(x/np.sqrt(2))
 
 
 def Treshold_cal(one_delays,zero_delays):
