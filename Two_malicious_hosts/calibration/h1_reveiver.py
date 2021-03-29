@@ -1,5 +1,7 @@
 import sys
 import socket
+from scipy import special as sp
+import numpy as np
 import random
 import struct
 import time
@@ -8,6 +10,21 @@ from scapy.all import *
 import shlex
 import datetime
 from variables import *
+
+def qfunc(x):
+    return 0.5-0.5*sp.erf(x/sqrt(2))
+
+
+def Treshold_cal(one_delays,zero_delays):
+    one_mean = np.mean(one_delays)
+    one_var = np.var(one_delays)
+    zero_mean = np.mean(zero_delays)
+    zero_var = np.var(zero_delays)
+    T = np.linspace(0,50,10001)
+    P_err = 0.5 * (qfunc((T-zero_mean)/sqrt(zero_var)) + qfunc(-(T-one_mean)/sqrt(one_var)))
+    index_min = np.argmin(P_err)
+    return T[index_min]
+
 
 
 def main():
@@ -20,6 +37,8 @@ def main():
     cmd_omitted = "timeout 0.0005 ping 10.0.0.2 -c 1"
     intervals = []
     recv_array = []
+    ones_delay = []
+    zeros_delay = []
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/receiver_calibration_log.txt", "w")
     cal_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/calibration_log.txt", "w")
     i = 0
@@ -37,15 +56,12 @@ def main():
         splitted = string.split('/')
         if len(splitted)> 4:
             cal_log.write("sent_bit:" + callibration_array[i] +  ", delay:"+ splitted[4] +"\n")
-            if float(splitted[4])  > 9 :
-                recv_array.append('1')
-                temp = temp + "1"
+            if callibration_array[i] =  '0' :
+                zeros_delay.append(float(splitted[4]))
             else:
-                recv_array.append('0')
-                temp = temp + "0"
+                ones_delay.append(float(splitted[4]))
         else:
             print "nan"
-            recv_array.append('NAN')
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
         print phase2_delay
@@ -54,17 +70,10 @@ def main():
         if(i >= callibration_array_size):
             break
     
-    print "Received Bitstring"
-    print recv_array
-    print "Sent Bitstring"
-    print callibration_array
-    counter = 0
-    for i in range(callibration_array_size):
-        if recv_array[i] != callibration_array[i]:
-            counter = counter + 1
-            print "At round: " + str(i) + " sended: " + callibration_array[i] + ", but received: " + recv_array[i] + "\n"
-    error_ratio = float(counter)/float(callibration_array_size)
-    print "Error ratio is: " + str(error_ratio)
+    print "The Calculated Treshold is:"
+    print Treshold_cal(ones_delay,zeros_delay)
+    #error_ratio = float(counter)/float(callibration_array_size)
+    #print "Error ratio is: " + str(error_ratio)
     log.close()
     cal_log.close()
 if __name__ == '__main__':
