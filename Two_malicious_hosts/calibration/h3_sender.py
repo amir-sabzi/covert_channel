@@ -22,7 +22,7 @@ def main():
     for element in callibration_array:
         calibration_phase1_start = time.time()
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
-        if element == '1'
+        if element == '1':
             srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=0.05)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
