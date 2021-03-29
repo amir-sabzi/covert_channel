@@ -2,8 +2,8 @@ import random
 import string 
 delta_1 = 0.09
 delta_2 = 0.06
-calibration_delta_1 = 0.15
-calibration_delta_2 = 0.1
+calibration_delta_1 = 0.3
+calibration_delta_2 = 0.3
 byte_num = 4
 callibration_array_size = 128
 callibration_array = ['1','0'] * int(callibration_array_size/2)

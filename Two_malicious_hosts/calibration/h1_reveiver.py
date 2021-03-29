@@ -21,7 +21,7 @@ def Treshold_cal(one_delays,zero_delays):
     zero_mean = np.mean(zero_delays)
     zero_var = np.var(zero_delays)
     T = np.linspace(0,50,10001)
-    P_err = 0.5 * (qfunc((T-zero_mean)/sqrt(zero_var)) + qfunc(-(T-one_mean)/sqrt(one_var)))
+    P_err = 0.5 * (qfunc((T-zero_mean)/np.sqrt(zero_var)) + qfunc(-(T-one_mean)/np.sqrt(one_var)))
     index_min = np.argmin(P_err)
     return T[index_min]
 
