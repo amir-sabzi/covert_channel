@@ -11,7 +11,7 @@ from variables import *
 
 
 def main():
-    print "waiting"
+    print "waiting for synchronization..."
     while True:
         if datetime.datetime.now().strftime('%S') == '00':
             break
