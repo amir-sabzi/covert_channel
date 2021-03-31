@@ -1,128 +1,128 @@
-sent_bit:1, delay:30.684
-sent_bit:0, delay:0.688
-sent_bit:1, delay:0.620
-sent_bit:0, delay:0.696
-sent_bit:1, delay:0.568
-sent_bit:0, delay:0.731
-sent_bit:1, delay:0.711
-sent_bit:0, delay:0.713
-sent_bit:1, delay:0.715
-sent_bit:0, delay:0.720
-sent_bit:1, delay:0.729
-sent_bit:0, delay:0.701
-sent_bit:1, delay:0.734
-sent_bit:0, delay:0.865
-sent_bit:1, delay:0.760
-sent_bit:0, delay:0.797
-sent_bit:1, delay:0.704
-sent_bit:0, delay:0.706
-sent_bit:1, delay:0.743
-sent_bit:0, delay:0.708
-sent_bit:1, delay:0.806
-sent_bit:0, delay:0.725
-sent_bit:1, delay:0.646
-sent_bit:0, delay:0.690
-sent_bit:1, delay:0.696
-sent_bit:0, delay:0.732
-sent_bit:1, delay:0.729
-sent_bit:0, delay:0.723
-sent_bit:1, delay:0.726
-sent_bit:0, delay:0.728
-sent_bit:1, delay:0.732
-sent_bit:0, delay:0.702
-sent_bit:1, delay:0.718
-sent_bit:0, delay:0.721
-sent_bit:1, delay:0.713
-sent_bit:0, delay:0.816
-sent_bit:1, delay:0.707
-sent_bit:0, delay:0.704
-sent_bit:1, delay:0.700
-sent_bit:0, delay:0.730
-sent_bit:1, delay:0.698
-sent_bit:0, delay:0.709
-sent_bit:1, delay:0.506
-sent_bit:0, delay:0.481
-sent_bit:1, delay:0.764
-sent_bit:0, delay:0.711
-sent_bit:1, delay:0.481
-sent_bit:0, delay:0.695
-sent_bit:1, delay:0.712
-sent_bit:0, delay:0.711
-sent_bit:1, delay:0.738
-sent_bit:0, delay:0.476
-sent_bit:1, delay:0.708
-sent_bit:0, delay:0.714
-sent_bit:1, delay:0.696
-sent_bit:0, delay:0.705
-sent_bit:1, delay:0.502
-sent_bit:0, delay:0.707
-sent_bit:1, delay:0.734
-sent_bit:0, delay:0.702
-sent_bit:1, delay:0.742
-sent_bit:0, delay:0.504
-sent_bit:1, delay:0.717
-sent_bit:0, delay:0.729
-sent_bit:1, delay:0.707
-sent_bit:0, delay:0.700
-sent_bit:1, delay:0.709
-sent_bit:0, delay:0.797
-sent_bit:1, delay:0.704
-sent_bit:0, delay:0.699
-sent_bit:1, delay:0.713
-sent_bit:0, delay:0.703
-sent_bit:1, delay:0.536
-sent_bit:0, delay:0.710
-sent_bit:1, delay:0.704
-sent_bit:0, delay:0.712
-sent_bit:1, delay:0.709
-sent_bit:0, delay:33.236
-sent_bit:1, delay:0.716
-sent_bit:0, delay:48.545
-sent_bit:1, delay:0.711
-sent_bit:0, delay:0.707
-sent_bit:1, delay:0.471
-sent_bit:0, delay:0.725
-sent_bit:1, delay:0.734
-sent_bit:0, delay:0.586
-sent_bit:1, delay:0.708
-sent_bit:0, delay:0.718
-sent_bit:1, delay:0.714
-sent_bit:0, delay:26.983
-sent_bit:1, delay:0.714
-sent_bit:0, delay:25.230
-sent_bit:1, delay:0.745
-sent_bit:0, delay:0.717
-sent_bit:1, delay:0.714
-sent_bit:0, delay:0.706
-sent_bit:1, delay:0.767
-sent_bit:0, delay:0.707
-sent_bit:1, delay:0.709
-sent_bit:0, delay:0.719
-sent_bit:1, delay:0.701
-sent_bit:0, delay:0.712
-sent_bit:1, delay:0.704
-sent_bit:0, delay:0.707
-sent_bit:1, delay:0.749
-sent_bit:0, delay:0.715
-sent_bit:1, delay:0.792
-sent_bit:0, delay:0.699
-sent_bit:1, delay:0.700
-sent_bit:0, delay:0.702
-sent_bit:1, delay:0.711
-sent_bit:0, delay:0.721
-sent_bit:1, delay:0.711
-sent_bit:0, delay:0.703
-sent_bit:1, delay:0.697
-sent_bit:0, delay:0.726
-sent_bit:1, delay:0.744
-sent_bit:0, delay:0.710
-sent_bit:1, delay:0.719
-sent_bit:0, delay:0.734
-sent_bit:1, delay:0.809
-sent_bit:0, delay:0.747
-sent_bit:1, delay:0.613
-sent_bit:0, delay:0.483
-sent_bit:1, delay:0.696
-sent_bit:0, delay:0.718
-sent_bit:1, delay:0.645
-sent_bit:0, delay:0.707
+1,13.450
+0,4.934
+1,11.242
+0,8.589
+1,12.264
+0,9.543
+1,19.862
+0,5.163
+1,13.753
+0,8.839
+1,12.992
+0,9.369
+1,13.540
+0,9.353
+1,17.410
+0,5.684
+1,15.719
+0,10.339
+1,12.347
+0,9.417
+1,17.582
+0,5.133
+1,13.419
+0,8.300
+1,12.778
+0,8.961
+1,24.540
+0,5.375
+1,13.384
+0,12.819
+1,12.810
+0,10.649
+1,12.239
+0,12.518
+1,16.674
+0,5.101
+1,16.263
+0,5.924
+1,11.499
+0,9.036
+1,13.201
+0,14.745
+1,17.313
+0,4.932
+1,16.397
+0,5.380
+1,12.953
+0,8.756
+1,15.523
+0,5.428
+1,11.311
+0,9.890
+1,13.313
+0,9.975
+1,15.309
+0,4.953
+1,13.122
+0,8.311
+1,10.637
+0,8.691
+1,12.516
+0,8.821
+1,17.643
+0,5.320
+1,17.174
+0,6.006
+1,21.213
+0,4.806
+1,18.377
+0,3.074
+1,15.892
+0,5.203
+1,14.100
+0,9.364
+1,13.772
+0,9.094
+1,16.254
+0,6.331
+1,16.527
+0,10.353
+1,13.729
+0,8.818
+1,15.970
+0,5.575
+1,16.219
+0,6.205
+1,21.912
+0,5.411
+1,15.755
+0,6.118
+1,15.362
+0,5.754
+1,17.194
+0,5.822
+1,14.990
+0,7.823
+1,17.023
+0,5.595
+1,13.673
+0,9.031
+1,13.621
+0,4.884
+1,11.723
+0,13.247
+1,13.702
+0,8.494
+1,12.435
+0,8.874
+1,21.327
+0,5.303
+1,16.283
+0,5.215
+1,16.434
+0,5.477
+1,15.858
+0,5.618
+1,16.557
+0,5.404
+1,15.612
+0,4.844
+1,16.058
+0,5.094
+1,16.419
+0,4.847
+1,16.130
+0,5.172
+1,15.817
+0,8.546
