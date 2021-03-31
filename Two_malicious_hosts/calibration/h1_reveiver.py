@@ -27,7 +27,7 @@ def Treshold_cal(one_delays,zero_delays):
 
 # This function is designed to perform calibration and find a proper treshold to determine reveived bit is one or zero. 
 # The input is the calibration array which in general case is a square wave. The output is the treshold(T) and and expected_error(E) using this treshold.
-def calibration(callibration_array,callibration_array_size)
+def calibration(callibration_array,callibration_array_size):
     print "waiting for synchronization..."
     # A synchronization part, should be replaced by a NTP server request.
     while True:                             
