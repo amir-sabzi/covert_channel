@@ -14,7 +14,7 @@ from variables import *
 def qfunc(x):
     return 0.5-0.5*sp.erf(x/np.sqrt(2))
 
-# In this function I implemented the statistical method that I reported to calculate a proper treshold.
+# In this function, I implemented the statistical method that I have reported in the document to calculate a proper treshold.
 def Treshold_cal(one_delays,zero_delays):  
     one_mean = np.mean(one_delays)
     one_var = np.var(one_delays)
@@ -94,10 +94,14 @@ def calibration(callibration_array,callibration_array_size):
 
 
 def main():
-    treshold, expected_error = calibration(callibration_array,callibration_array_size)
-    print "The Calculated Treshold is: " + str(treshold)
-    print "Error ratio using this treshold is: " + str(expected_error)
-
+    T_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/Treshold_calibration_log.txt", "w")
+    T_log.write("Treshold,Error" + "\n")
+    for j in range(number_of_tests):
+        treshold, expected_error = calibration(callibration_array,callibration_array_size)
+        T_log.write(str(treshold) + "," + str(expected_error) + "\n")
+        print "The Calculated Treshold is: " + str(treshold)
+        print "Error ratio using this treshold is: " + str(expected_error)
+    T_log.close()
 if __name__ == '__main__':
     main()
 
