@@ -95,13 +95,11 @@ def calibration(callibration_array,callibration_array_size):
 
 def main():
     T_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/Treshold_calibration_log.txt", "w")
-    T_log.write("Treshold,Error" + "\n")
-    for j in range(number_of_tests):
-        treshold, expected_error = calibration(callibration_array,callibration_array_size)
-        T_log.write(str(treshold) + "," + str(expected_error) + "\n")
-        print "The Calculated Treshold is: " + str(treshold)
-        print "Error ratio using this treshold is: " + str(expected_error)
-    T_log.close()
+    #T_log.write("Treshold,Error" + "\n")
+    treshold, expected_error = calibration(callibration_array,callibration_array_size)
+    print "The Calculated Treshold is: " + str(treshold)
+    print "Error ratio using this treshold is: " + str(expected_error)
+    #T_log.close()
 if __name__ == '__main__':
     main()
 
