@@ -523,7 +523,10 @@ class TutorialTopo(Topo):
         #self.addLink(h2, s1)  # port 4
 
 
-
+def configure_network(network):
+    h3 = network.get('h3')
+    h3.setMAC('00:00:00:00:00:30', intf='server-eth0')
+    h3.setMAC('00:00:00:00:00:40', intf='server-eth1')
 
 
 if __name__ == '__main__':
@@ -533,6 +536,7 @@ if __name__ == '__main__':
         controller=lambda name: RemoteController( name, ip='131.130.124.83', port=8101 ),
         switch=ONOSBmv2Switch,
         autoPinCpus=True)
+    configure_network(net)
     net.start()
     # Drop the user in to a CLI so user can run commands.
     CLI( net )
