@@ -28,8 +28,10 @@ from mininet.node import Switch, Host, CPULimitedHost
 from mininet.link import TCLink, Intf, Link
 import argparse
 from mininet.cli import CLI
+from mininet.log import setLogLevel
 from mininet.net import Mininet
 from mininet.topo import Topo
+from mininet.node import RemoteController, OVSSwitch
 CPU_PORT = 255
 
 
@@ -522,6 +524,20 @@ class TutorialTopo(Topo):
 
 
 
-topos = { 'mytopo': ( lambda: TutorialTopo() ) }
+
+
+if __name__ == '__main__':
+    setLogLevel('info')
+    mytopo = TutorialTopo()
+   net = Mininet(
+        topo=mytopo,
+        controller=lambda name: RemoteController( name, ip='131.130.124.83', port=8101 ),
+        switch=onosbmv2,
+        autoPinCpus=True )
+    net.start()
+    # Drop the user in to a CLI so user can run commands.
+    CLI( net )
+    # After the user exits the CLI, shutdown the network.
+    net.stop()
 
 
