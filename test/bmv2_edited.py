@@ -25,6 +25,7 @@ import urllib2
 from contextlib import closing
 from mininet.log import info, warn, debug
 from mininet.node import Switch, Host, CPULimitedHost
+from mininet.link import TCLink, Intf, Link
 import argparse
 from mininet.cli import CLI
 from mininet.net import Mininet
