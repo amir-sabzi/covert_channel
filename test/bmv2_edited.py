@@ -525,8 +525,8 @@ class TutorialTopo(Topo):
 
 def configure_network(network):
     h3 = network.get('h3')
-    h3.setMAC('00:00:00:00:00:30', intf='server-eth0')
-    h3.setMAC('00:00:00:00:00:40', intf='server-eth1')
+    h3.setMAC('00:00:00:00:00:30', intf='h3-eth0')
+    h3.setMAC('00:00:00:00:00:40', intf='h3-eth1')
 
 
 if __name__ == '__main__':
