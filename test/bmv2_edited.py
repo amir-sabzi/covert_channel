@@ -506,10 +506,10 @@ class TutorialTopo(Topo):
         self.addLink(s3, s2)
 
         # hosts attached to s1
-        h1 = self.addHost('h1', cls=ONOSHost, mac=None)
-        h2 = self.addHost('h2', cls=ONOSHost, mac=None)
+        h1 = self.addHost('h1', cls=ONOSHost,)
+        h2 = self.addHost('h2', cls=ONOSHost,)
         # hosts attached to s2
-        h3 = self.addHost('h3', cls=ONOSHost, mac=None)
+        h3 = self.addHost('h3', cls=ONOSHost,)
 
         #switch-host links
         self.addLink(h3, s2,  params1={'ip' : '10.0.0.3/24' })
