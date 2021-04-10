@@ -531,7 +531,7 @@ if __name__ == '__main__':
     mytopo = TutorialTopo()
     net = Mininet(topo=mytopo,
         controller=lambda name: RemoteController( name, ip='131.130.124.83', port=8101 ),
-        switch=onosbmv2,
+        switch=ONOSBmv2Switch,
         autoPinCpus=True)
     net.start()
     # Drop the user in to a CLI so user can run commands.
