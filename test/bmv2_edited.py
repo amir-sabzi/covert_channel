@@ -511,9 +511,9 @@ class TutorialTopo(Topo):
         h3 = self.addHost('h3', cls=ONOSHost)
 
         #switch-host links
-        self.addLink(h3, s2, intf=TCIntf,  params1={'mac':'00:00:00:00:00:30', 'ip' : '10.0.0.3/24' }
-        self.addLink(h1, s1, intf=TCIntf,  params1={'mac':'00:00:00:00:00:10', 'ip' : '10.0.0.1/24' }
-        self.addLink(h2, s1, intf=TCIntf,  params1={'mac':'00:00:00:00:00:20', 'ip' : '10.0.0.2/24' }
+        self.addLink(h3, s2, intf=TCIntf,  params1={'mac':'00:00:00:00:00:30', 'ip' : '10.0.0.3/24' })
+        self.addLink(h1, s1, intf=TCIntf,  params1={'mac':'00:00:00:00:00:10', 'ip' : '10.0.0.1/24' })
+        self.addLink(h2, s1, intf=TCIntf,  params1={'mac':'00:00:00:00:00:20', 'ip' : '10.0.0.2/24' })
         #self.addLink(h3, s2)  # port 3
         #self.addLink(h1, s1)  # port 3
         #self.addLink(h2, s1)  # port 4
