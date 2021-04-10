@@ -513,6 +513,7 @@ class TutorialTopo(Topo):
 
         #switch-host links
         self.addLink(h3, s2,  params1={'ip' : '10.0.0.3/24' })
+        self.addLink(h3, s2,  params1={'ip' : '10.0.0.4/24' })
         self.addLink(h1, s1,  params1={'ip' : '10.0.0.1/24' })
         self.addLink(h2, s1,  params1={'ip' : '10.0.0.2/24' })
         #self.addLink(h3, s2)  # port 3
