@@ -43,8 +43,8 @@ def calibration(receiving_array,receiving_array_size,interface_name):
     # I defined two log-file. First, the "receiver_calibration_log.txt", and I use this to record timing of rounds and packet arrival times.
     # The second log file is "calibration_log.txt". This file is used for experimental purpose.
     # Caution: if you are running this code on your machine, you should consider changing the directroy of each log file.
-    log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/receiver_calibration_log_" + interface_name + ".txt", "w")
-    cal_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/calibration_log.txt_" + interface_name + ".txt", "w")
+    log = open("/home/amirs97/covert_channel/Two_malicious_hosts/GFR-NH/logs/receiver_calibration_log_" + interface_name + ".txt", "w")
+    cal_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/GFR-NH/logs/calibration_log_" + interface_name + ".txt", "w")
     cal_log.write("bit, RTT" + "\n")
     ones_delay = []
     zeros_delay = []
@@ -52,7 +52,7 @@ def calibration(receiving_array,receiving_array_size,interface_name):
     # In this for loop, the receiver will receive the data based on the algorithm that I described. But here we just want to calibrate the receiver, Thus...
     # ... we just will record the ping packet RTT to determine the treshold based on that.
     for i in range(receiving_array_size):
-        print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
+        #print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         time.sleep(calibration_delta_1)
         phase2_start = time.time()
@@ -85,6 +85,8 @@ def calibration(receiving_array,receiving_array_size,interface_name):
     # ...with the final error value at the end.
     err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
     error_ratio = float(err_count)/float(receiving_array_size)
+    print "the calculated threshold for " + interface_name + " is: "+ str(T) + "\n"
+    print "the expected error for " + interface_name + " is: "+ str(error_ratio) + "\n"
     cal_log.write("the calculated threshold is: "+ str(T) + "\n")
     cal_log.write("the expected error is: "+ str(error_ratio) + "\n")
 
