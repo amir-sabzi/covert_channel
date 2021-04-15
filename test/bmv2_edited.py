@@ -529,6 +529,7 @@ class TutorialTopo(Topo):
 
 def configure_network(network):
     h3 = network.get('h3')
+    h1 = network.get('h1')
     # Configuring the h3
     for i in range(interface_num):
         if (i < 10):
