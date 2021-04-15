@@ -530,6 +530,8 @@ class TutorialTopo(Topo):
 def configure_network(network):
     h3 = network.get('h3')
     h1 = network.get('h1')
+    h1.setIP('10.0.0.100',intf='h1-eth0')
+    h3.setIP('10.0.0.200',intf='h3-eth0')
     # Configuring the h3
     for i in range(interface_num):
         if (i < 10):
