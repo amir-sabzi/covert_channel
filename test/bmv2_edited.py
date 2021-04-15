@@ -488,7 +488,7 @@ switches = {
 }
 hosts = {'onoshost': ONOSHost}
 
-
+interface_num = 3
 class TutorialTopo(Topo):
     """2x2 fabric topology with IPv6 hosts"""
 
@@ -514,9 +514,12 @@ class TutorialTopo(Topo):
         h3 = self.addHost('h3', cls=ONOSHost,)
 
         #switch-host links
-        self.addLink(h3, s2,  params1={'ip' : '10.0.0.3/24' })
-        self.addLink(h3, s2,  params1={'ip' : '10.0.0.4/24' })
-        self.addLink(h1, s1,  params1={'ip' : '10.0.0.1/24' })
+        for i in range(interface_num):
+            ip_h3 = '10.0.0.' + str(300 + i) + '/24'
+            self.addLink(h3, s2,  params1={'ip' : ip_h3 })
+            ip_h1 = '10.0.0.' + str(100 + i) + '/24'
+            self.addLink(h1, s1,  params1={'ip' : ip_h1 })
+
         self.addLink(h2, s1,  params1={'ip' : '10.0.0.2/24' })
         #self.addLink(h3, s2)  # port 3
         #self.addLink(h1, s1)  # port 3
@@ -525,8 +528,18 @@ class TutorialTopo(Topo):
 
 def configure_network(network):
     h3 = network.get('h3')
-    h3.setMAC('00:00:00:00:00:30', intf='h3-eth0')
-    h3.setMAC('00:00:00:00:00:40', intf='h3-eth1')
+    # Configuring the h3
+    for i in range(interface_num):
+        if (i < 10):
+            mac_h3 = '00:00:00:00:03:0' + str(i)
+            mac_h1 = '00:00:00:00:01:0' + str(i)
+        else:
+            mac_h3 = '00:00:00:00:03:' + str(i)
+            mac_h1 = '00:00:00:00:01:' + str(i)
+        int_h3 = 'h3-eth' + str(i)
+        int_h1 = 'h1-eth' + str(i)
+        h3.setMAC(mac_h3, intf=int_h3)
+        h1.setMAC(mac_h1, intf=int_h1)
 
 
 if __name__ == '__main__':
