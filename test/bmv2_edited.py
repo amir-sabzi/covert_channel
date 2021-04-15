@@ -538,8 +538,12 @@ def configure_network(network):
         else:
             mac_h3 = '00:00:00:00:03:' + str(i)
             mac_h1 = '00:00:00:00:01:' + str(i)
+        ip_h3 = '10.0.0.' + str(300 + i) + '/24'
+        ip_h1 = '10.0.0.' + str(100 + i) + '/24'
         int_h3 = 'h3-eth' + str(i)
         int_h1 = 'h1-eth' + str(i)
+        h3.setIP(ip_h3,intf=int_h3)
+        h1.setIP(ip_h1,intf=int_h1)
         h3.setMAC(mac_h3, intf=int_h3)
         h1.setMAC(mac_h1, intf=int_h1)
 
