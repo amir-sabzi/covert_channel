@@ -13,7 +13,7 @@ t0_array = []
 t1_array = []
 t2_array = []
 for i in range(callibration_array_size/interface_num):
-    t0_arraya.append(callibration_array[interface_num*i])
+    t0_array.append(callibration_array[interface_num*i])
     t1_array.append(callibration_array[interface_num*i + 1])
     t2_array.append(callibration_array[interface_num*i + 2])
 
