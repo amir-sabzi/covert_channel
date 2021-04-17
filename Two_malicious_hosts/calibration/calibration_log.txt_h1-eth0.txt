@@ -1,0 +1,3 @@
+bit, RTT
+the calculated threshold is: 0.0
+the expected error is: 0.0
