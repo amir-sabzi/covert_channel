@@ -98,27 +98,23 @@ def calibration(receiving_array,receiving_array_size,interface_name):
 
 
 def main():
+    thread_list = []
+    # creating threads
+    for i in range(interface_num):
+        callibration_array_temp = [row[i] for row in calibration_matrix]
+        interface_name = "h1-eth" + str(i)
+        thread = threading.Thread(target=calibration, args=(callibration_array_temp,callibration_array_size,interface_name,))
+        thread_list.append(thread)
 
-    # creating thread
-    t0 = threading.Thread(target=calibration, args=(t0_array,callibration_array_size/interface_num,"h1-eth0",))
-    t1 = threading.Thread(target=calibration, args=(t1_array,callibration_array_size/interface_num,"h1-eth1",))
-    t2 = threading.Thread(target=calibration, args=(t2_array,callibration_array_size/interface_num,"h1-eth2",))
+    # starting threads
+    for thread in thread_list:
+        thread.start()
 
-    # starting thread 0
-    t0.start()
-    # starting thread 1
-    t1.start()
-    # starting thread 2
-    t2.start()
+    # wait until threads are completely executed
+    for thread in thread_list:
+        thread.join()
 
-    # wait until thread 0 is completely executed
-    t0.join()
-    # wait until thread 1 is completely executed
-    t1.join()
-    # wait until thread 2 is completely executed
-    t2.join()
-  
-    # both threads completely executed
+    # threads completely executed
     print("Done!")
 if __name__ == '__main__':
     main()
