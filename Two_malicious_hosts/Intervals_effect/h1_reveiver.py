@@ -37,7 +37,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
 
     # As I described in the report, after vm-migration, the first try to ping other severs will fail. 
     # Thus, with the cmd_omitted we just send first ping request and we will not wait for the response.
-    cmd_timeout = delta2/2
+    cmd_timeout = delta_2/2
     cmd = "timeout " + str(cmd_timeout) + " ping 10.0.0.2 -c 1"
     cmd_omitted = "timeout 0.0005 ping 10.0.0.2 -c 1"
 
