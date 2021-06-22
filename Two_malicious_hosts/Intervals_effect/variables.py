@@ -3,8 +3,8 @@ import string
 import numpy as np 
 
 
-delta_1_array = np.linspace(1,3,1)
-delta_2_array = np.linspace(1,1.5,1)
+delta_1_array = np.linspace(0.07,3,10)
+delta_2_array = np.linspace(0.04,1.5,10)
 
 #delta_1 = 0.09
 #delta_2 = 0.06

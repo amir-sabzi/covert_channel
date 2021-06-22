@@ -16,7 +16,7 @@ def sender(sending_thread_array,delta_1,delta_2):
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    cmd_timeout = delta_1/5
+    cmd_timeout = delta_1 * 3/5
     cmd = "timeout " + str(cmd_timeout) + " nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
     i = 1
     for element in sending_thread_array:
