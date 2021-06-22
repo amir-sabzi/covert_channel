@@ -101,8 +101,8 @@ def main():
     TE_log.write("delta_1,delta_2,Treshold,Error" + "\n")
     for delta_1 in delta_1_array:
         for delta_2 in delta_2_array:
-            treshold, expected_error = calibration(callibration_array,callibration_array_size,delta_1,delta_2)
-            print "The Calculated Treshold is: " + str(treshold)
+            threshold, expected_error = calibration(callibration_array,callibration_array_size,delta_1,delta_2)
+            print "The Calculated Treshold is: " + str(threshold)
             print "Error ratio using this treshold is: " + str(expected_error)
             TE_log.write(str(delta_1)+","+str(delta_2)+","+str(threshold)+","+str(expected_error) + "\n")
 
