@@ -3,8 +3,9 @@ import string
 import numpy as np 
 
 
-delta_1_array = np.linspace(0.06,3,10)
-delta_2_array = np.linspace(0.05,1.5,10)
+delta_1_array = np.flip(np.linspace(0.06,3,10), axis=None)
+delta_2_array =  np.flip(np.linspace(0.05,1.5,10), axis=None)
+
 
 #delta_1 = 0.09
 #delta_2 = 0.06
@@ -24,5 +25,5 @@ c = ['1' + '{0:07b}'.format(i) for i in b]
 c.append('10000000')
 d = [list(i) for i in c]
 send_array = [item for sublist in d for item in sublist]
-
+print(delta_2_array)
 
