@@ -16,13 +16,15 @@ def sender(sending_thread_array,delta_1,delta_2):
         if datetime.datetime.now().strftime('%S') == '00':
             break
     print "running"
-    #cmd = "timeout 0.05 nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
+    cmd_timeout = delta_1/5
+    cmd = "timeout " + str(cmd_timeout) + " nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
     i = 1
     for element in sending_thread_array:
         calibration_phase1_start = time.time()
         print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         if element == '1':
-            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=(delta_1/20),verbose=0)
+            #srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=(delta_1/20),verbose=0)
+            output = Popen(cmd,stdout=PIPE,shell=True)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
         print(calibration_phase1_delay)
