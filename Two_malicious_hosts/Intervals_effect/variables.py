@@ -3,8 +3,8 @@ import string
 import numpy as np 
 
 
-delta_1_array = np.flip(np.linspace(0.06,1,10), axis=None)
-delta_2_array =  np.flip(np.linspace(0.05,1,10), axis=None)
+delta_1_array = np.flip(np.linspace(0.06,1,8), axis=None)
+delta_2_array =  np.flip(np.linspace(0.05,1,8), axis=None)
 
 
 #delta_1 = 0.09
