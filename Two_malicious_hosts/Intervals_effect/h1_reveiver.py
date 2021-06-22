@@ -59,7 +59,6 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
         string = output.communicate()[0]
         splitted = string.split('/')
         if len(splitted)> 4:
-            cal_log.write(callibration_array[i] +  ","+ splitted[4] +"\n")
             if callibration_array[i] ==  '0' :
                 zeros_delay.append(float(splitted[4]))
             else:
