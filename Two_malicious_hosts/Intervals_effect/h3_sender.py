@@ -22,7 +22,7 @@ def sender(sending_thread_array,delta_1,delta_2):
         calibration_phase1_start = time.time()
         print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         if element == '1':
-            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=(delta_1/8),verbose=0)
+            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src="00:00:00:00:00:01")/ARP(pdst="10.0.0.2"),timeout=(delta_1/20),verbose=0)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
         print(calibration_phase1_delay)
