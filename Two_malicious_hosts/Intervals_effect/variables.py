@@ -4,7 +4,7 @@ import numpy as np
 
 
 delta_1_array = np.flip(np.linspace(0.06,1,8), axis=None)
-delta_2_array =  np.flip(np.linspace(0.04,0.05,2), axis=None)
+delta_2_array =  np.flip(np.linspace(0.04,0.0475,2), axis=None)
 
 
 #delta_1 = 0.09
