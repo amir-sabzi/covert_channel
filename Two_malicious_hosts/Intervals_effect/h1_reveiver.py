@@ -49,8 +49,12 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
     nan_counter = 0
     # In this for loop, the receiver will receive the data based on the algorithm that I described. But here we just want to calibrate the receiver, Thus...
     # ... we just will record the ping packet RTT to determine the treshold based on that.
+    flag = False
     for i in range(callibration_array_size):
         print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
+        if flag:
+            flag = False
+            continue
         time.sleep(delta_1)
         phase2_start = time.time()
         output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
@@ -71,7 +75,12 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
         # In this line, I tried to compensate the time spent to run the code. It helps us to stay synchronized with the sender.
         # Causion: if we have the phase2_delay > calibration_delta_2, we will got the error an running code will be terminated, and it reasonable because that means...
         # ...we have chosen insufficient values for delta 1 and delta 2.
-        time.sleep(delta_2 - phase2_delay)
+        if (delta_2 - phase2_delay < 0):
+            flag = True
+            nan_counter += 1
+            time.sleep((delta_1+delta_2) -(phase2_delay-delta_2))
+        else:
+            time.sleep(delta_2 - phase2_delay)
     
 
     # I add this part to reconfigure flows for the next trial

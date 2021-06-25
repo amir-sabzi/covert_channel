@@ -27,3 +27,11 @@ d = [list(i) for i in c]
 send_array = [item for sublist in d for item in sublist]
 print(delta_2_array)
 
+flag = False
+for i in range(5):
+    if flag:
+        flag = False
+        continue
+    print(i)
+    if i==2:
+        flag = True
