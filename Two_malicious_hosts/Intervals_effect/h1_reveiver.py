@@ -109,7 +109,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
 
 
 def main():
-    TE_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/Intervals_effect/Intervals_log_exp2.txt", "w")
+    TE_log = open("/home/amirs97/covert_channel/Two_malicious_hosts/Intervals_effect/Intervals_log_exp3.txt", "w")
     TE_log.write("delta_1,delta_2,Treshold,Error" + "\n")
     for delta_1 in delta_1_array:
         for delta_2 in delta_2_array:
