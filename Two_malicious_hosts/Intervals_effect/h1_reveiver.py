@@ -76,6 +76,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
         # Causion: if we have the phase2_delay > calibration_delta_2, we will got the error an running code will be terminated, and it reasonable because that means...
         # ...we have chosen insufficient values for delta 1 and delta 2.
         if (delta_2 - phase2_delay < 0):
+            print("Synch Error")
             flag = True
             nan_counter += 1
             time.sleep((delta_1+delta_2) -(phase2_delay-delta_2))

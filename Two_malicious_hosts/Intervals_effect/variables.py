@@ -3,8 +3,8 @@ import string
 import numpy as np 
 
 
-delta_1_array = np.flip(np.linspace(0.06,1,8), axis=None)
-delta_2_array =  np.flip(np.linspace(0.03,0.035,2), axis=None)
+delta_1_array = np.flip(np.linspace(0.06,0.15,4), axis=None)
+delta_2_array =  np.flip(np.linspace(0.05,1,8), axis=None)
 
 
 #delta_1 = 0.09
@@ -27,11 +27,3 @@ d = [list(i) for i in c]
 send_array = [item for sublist in d for item in sublist]
 print(delta_2_array)
 
-flag = False
-for i in range(5):
-    if flag:
-        flag = False
-        continue
-    print(i)
-    if i==2:
-        flag = True
