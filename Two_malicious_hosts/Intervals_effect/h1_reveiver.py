@@ -89,6 +89,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
     # Here we calculate expected error. As I said before, we choose a treshold that can minimize the error function. We defined this error function based on assumption that...
     # ...the samples come from a Gaussian distribution. The error will minimize but it may not be zoro. Thus, I reported the exptected value for the erorr. I will compare it...
     # ...with the final error value at the end.
+    print("The number of nan bits are: " + str(nan_counter)
     err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay) + nan_counter
     error_ratio = float(err_count)/float(callibration_array_size)
     return T, error_ratio
