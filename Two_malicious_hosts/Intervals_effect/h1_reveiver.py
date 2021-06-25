@@ -46,7 +46,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
     # Caution: if you are running this code on your machine, you should consider changing the directroy of each log file.
     ones_delay = []
     zeros_delay = []
-
+    nan_counter = 0
     # In this for loop, the receiver will receive the data based on the algorithm that I described. But here we just want to calibrate the receiver, Thus...
     # ... we just will record the ping packet RTT to determine the treshold based on that.
     for i in range(callibration_array_size):
@@ -65,6 +65,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
                 ones_delay.append(float(splitted[4]))
         else:
             print "nan"
+            nan_counter += 1
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
         # In this line, I tried to compensate the time spent to run the code. It helps us to stay synchronized with the sender.
@@ -88,7 +89,7 @@ def calibration(callibration_array,callibration_array_size,delta_1,delta_2):
     # Here we calculate expected error. As I said before, we choose a treshold that can minimize the error function. We defined this error function based on assumption that...
     # ...the samples come from a Gaussian distribution. The error will minimize but it may not be zoro. Thus, I reported the exptected value for the erorr. I will compare it...
     # ...with the final error value at the end.
-    err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
+    err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay) + nan_counter
     error_ratio = float(err_count)/float(callibration_array_size)
     return T, error_ratio
 
