@@ -2,7 +2,7 @@ import random
 import string 
 delta_1 = 0.09
 delta_2 = 0.06
-interface_num = 5
+interface_num = 10
 number_of_tests = 32
 calibration_delta_1 = 0.4
 calibration_delta_2 = 0.4
