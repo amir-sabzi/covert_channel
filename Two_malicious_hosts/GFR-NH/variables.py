@@ -2,10 +2,10 @@ import random
 import string 
 delta_1 = 0.09
 delta_2 = 0.06
-interface_num = 15
+interface_num = 5
 number_of_tests = 32
-calibration_delta_1 = 0.3
-calibration_delta_2 = 0.3
+calibration_delta_1 = 0.4
+calibration_delta_2 = 0.4
 byte_num = 4
 callibration_array_size = 128
 zeros = ['0'] * interface_num
