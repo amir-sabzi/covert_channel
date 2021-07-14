@@ -4,7 +4,7 @@ import string
 interface_num = 10
 number_of_tests = 32
 calibration_delta_1 = 0.12
-calibration_delta_2 = 0.05
+calibration_delta_2 = 0.12
 byte_num = 4
 callibration_array_size = 128
 zeros = ['0'] * interface_num
