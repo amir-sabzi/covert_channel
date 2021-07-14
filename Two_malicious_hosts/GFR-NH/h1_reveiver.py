@@ -73,7 +73,6 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
             else:
                 ones_delay.append(float(splitted[4]))
         else:
-            print "nan"
             nan_counter += 1
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
@@ -127,7 +126,7 @@ def main():
     for thread in thread_list:
         thread.join()
     print results
-    print("The average error rate is: " + str(sum(results)/len(result)))
+    print("The average error rate is: " + str(sum(results)/len(results)))
     # threads completely executed
     print("Done!")
 if __name__ == '__main__':
