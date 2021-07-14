@@ -23,7 +23,7 @@ def sender(sending_thread_array,source_mac,interface_name):
         calibration_phase1_start = time.time()
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         if element == '1':
-            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"),timeout=0.05,iface=interface_name,verbose=0)
+            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"),timeout=0.1,iface=interface_name,verbose=0)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
         time.sleep(calibration_delta_1 - calibration_phase1_delay)
