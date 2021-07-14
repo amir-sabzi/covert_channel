@@ -551,7 +551,7 @@ if __name__ == '__main__':
     setLogLevel('info')
     mytopo = TutorialTopo()
     net = Mininet(topo=mytopo,
-        controller=lambda name: RemoteController( name, ip='131.130.124.83', port=8101 ),
+        controller=lambda name: RemoteController( name, ip='131.130.124.71', port=8101 ),
         switch=ONOSBmv2Switch,
         autoPinCpus=True)
     configure_network(net)
