@@ -28,7 +28,7 @@ def sender(sending_thread_array,source_mac,interface_name):
             #output = Popen(cmd,stdout=PIPE,shell=True)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
-        print(calibration_delta_1 - calibration_phase1_delay)
+        print(calibration_phase1_delay)
         time.sleep(calibration_delta_1 - calibration_phase1_delay)
         time.sleep(calibration_delta_2)
         i += 1
