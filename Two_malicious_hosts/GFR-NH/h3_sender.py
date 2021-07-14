@@ -24,7 +24,7 @@ def sender(sending_thread_array,source_mac,interface_name):
     for element in sending_thread_array:
         calibration_phase1_start = time.time()
         if element == '1':
-            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"),timeout=0.05,iface=interface_name,verbose=0)
+            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"), timeout=cmd_timeout, iface=interface_name,verbose=0)
             #output = Popen(cmd,stdout=PIPE,shell=True)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
