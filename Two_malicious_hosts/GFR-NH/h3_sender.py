@@ -17,13 +17,16 @@ def sender(sending_thread_array,source_mac,interface_name):
             break
     print "running"
     #cmd = "timeout 0.05 nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
+    cmd_timeout = calibration_delta_1 * 3/5
+    cmd = "timeout " + str(cmd_timeout) + " nping " + " -e " + interface_name + " --source-mac " + source_mac + " 10.0.0.2 -c 1"
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/sender_calibration_log_" + interface_name + ".txt", "w")
     i = 1
     for element in sending_thread_array:
         calibration_phase1_start = time.time()
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
         if element == '1':
-            srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"),timeout=0.05,iface=interface_name,verbose=0)
+            #srp(Ether(dst="ff:ff:ff:ff:ff:ff" , src=source_mac)/ARP(pdst="10.0.0.2"),timeout=0.05,iface=interface_name,verbose=0)
+            output = Popen(cmd,stdout=PIPE,shell=True)
         calibration_phase1_finish = time.time()
         calibration_phase1_delay = calibration_phase1_finish - calibration_phase1_start
         time.sleep(calibration_delta_1 - calibration_phase1_delay)
