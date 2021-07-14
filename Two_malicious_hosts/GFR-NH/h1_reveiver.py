@@ -68,6 +68,7 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
         splitted = string.split('/')
         if len(splitted)> 4:
             cal_log.write(receiving_array[i] +  ","+ splitted[4] +"\n")
+            print(float(splitted[4]))
             if receiving_array[i] ==  '0' :
                 zeros_delay.append(float(splitted[4]))
             else:
