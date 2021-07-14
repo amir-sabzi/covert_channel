@@ -73,6 +73,7 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
             else:
                 ones_delay.append(float(splitted[4]))
         else:
+            print "nan"
             nan_counter += 1
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
