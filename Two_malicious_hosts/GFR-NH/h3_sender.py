@@ -17,7 +17,7 @@ def sender(sending_thread_array,source_mac,interface_name):
             break
     print "running"
     #cmd = "timeout 0.05 nping --source-mac 00:00:00:00:00:01 10.0.0.2 -c 1"
-    cmd_timeout = calibration_delta_1 * 3/5
+    cmd_timeout = calibration_delta_1 * 1/5
     cmd = "timeout " + str(cmd_timeout) + " nping " + " -e " + interface_name + " --source-mac " + source_mac + " 10.0.0.2 -c 1"
     log = open("/home/amirs97/covert_channel/Two_malicious_hosts/calibration/sender_calibration_log_" + interface_name + ".txt", "w")
     i = 1
