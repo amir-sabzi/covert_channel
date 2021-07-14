@@ -37,7 +37,8 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
 
     # As I described in the report, after vm-migration, the first try to ping other severs will fail. 
     # Thus, with the cmd_omitted we just send first ping request and we will not wait for the response.
-    cmd = "timeout 0.08 ping -I " + interface_name + " 10.0.0.2 -c 1"  
+    cmd_timeout = calibration_delta_2/2 
+    cmd = "timeout " + str(cmd_timeout) + " ping -I " + interface_name + " 10.0.0.2 -c 1"  
     cmd_omitted = "timeout 0.0005 ping -I " + interface_name + " 10.0.0.2 -c 1"
 
     # I defined two log-file. First, the "receiver_calibration_log.txt", and I use this to record timing of rounds and packet arrival times.
@@ -48,12 +49,16 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
     cal_log.write("bit, RTT" + "\n")
     ones_delay = []
     zeros_delay = []
-
+    nan_counter = 0
     # In this for loop, the receiver will receive the data based on the algorithm that I described. But here we just want to calibrate the receiver, Thus...
     # ... we just will record the ping packet RTT to determine the treshold based on that.
+    flag = False
     for i in range(receiving_array_size):
         #print "Calibration Phase, Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f')
         log.write("Round" + str(i) +  " is started at " + datetime.datetime.now().strftime('%H:%M:%S:%f') + "\n")
+        if flag:
+            flag = False
+            continue        
         time.sleep(calibration_delta_1)
         phase2_start = time.time()
         output_ommited = Popen(cmd_omitted,stdout=PIPE,shell=True)
@@ -69,21 +74,28 @@ def calibration(receiving_array,receiving_array_size,interface_name,result,index
                 ones_delay.append(float(splitted[4]))
         else:
             print "nan"
+            nan_counter += 1
         phase2_finish = time.time()
         phase2_delay = phase2_finish - phase2_start
-        print phase2_delay
         # In this line, I tried to compensate the time spent to run the code. It helps us to stay synchronized with the sender.
         # Causion: if we have the phase2_delay > calibration_delta_2, we will got the error an running code will be terminated, and it reasonable because that means...
         # ...we have chosen insufficient values for delta 1 and delta 2.
-        time.sleep(calibration_delta_2 - phase2_delay)
+        if (calibration_delta_2 - phase2_delay < 0):
+            print("Synch Error")
+            flag = True
+            nan_counter += 1
+            time.sleep((calibration_delta_1+calibration_delta_2) -(phase2_delay-calibration_delta_2))
+        else:
+            time.sleep(calibration_delta_2 - phase2_delay)
 
     # Calculating the treshold using the data extracted in previous loop.
     T = Treshold_cal(ones_delay,zeros_delay)
 
+
     # Here we calculate expected error. As I said before, we choose a treshold that can minimize the error function. We defined this error function based on assumption that...
     # ...the samples come from a Gaussian distribution. The error will minimize but it may not be zoro. Thus, I reported the exptected value for the erorr. I will compare it...
     # ...with the final error value at the end.
-    err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay)
+    err_count = sum(i > T for i in zeros_delay) + sum(i < T for i in ones_delay) + nan_counter
     error_ratio = float(err_count)/float(receiving_array_size)
     print "the calculated threshold for " + interface_name + " is: "+ str(T) + "\n"
     print "the expected error for " + interface_name + " is: "+ str(error_ratio) + "\n"
@@ -114,8 +126,8 @@ def main():
     # wait until threads are completely executed
     for thread in thread_list:
         thread.join()
-    print result
-    print sum(result)/len(result)
+    print results
+    print("The average error rate is: " + str(sum(results)/len(result)))
     # threads completely executed
     print("Done!")
 if __name__ == '__main__':
