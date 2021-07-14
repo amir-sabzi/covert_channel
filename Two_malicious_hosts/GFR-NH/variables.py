@@ -3,7 +3,7 @@ import string
 
 interface_num = 10
 number_of_tests = 32
-calibration_delta_1 = 0.2
+calibration_delta_1 = 0.3
 calibration_delta_2 = 0.2
 byte_num = 4
 callibration_array_size = 128
