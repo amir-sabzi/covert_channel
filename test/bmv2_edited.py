@@ -488,7 +488,7 @@ switches = {
 }
 hosts = {'onoshost': ONOSHost}
 
-interface_num = 5
+interface_num = 6
 
 class TutorialTopo(Topo):
     """2x2 fabric topology with IPv6 hosts"""
