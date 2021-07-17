@@ -166,7 +166,7 @@ def transmission(Threshold):
     syncInterval_stop = time.time()
     syncInterval_delay = syncInterval_start - syncInterval_stop
     time.sleep(syncTrial_duration - syncInterval_delay)
-    empirical_error = (nan_counter+zeros_received_one_counter+ones_received_zero_counter)/len(transmission_array)
+    empirical_error =float(nan_counter+zeros_received_one_counter+ones_received_zero_counter)/float(len(transmission_array))
     return nan_counter, zeros_received_one_counter, ones_received_zero_counter, empirical_error
 
 def receiving(path_to_log):
