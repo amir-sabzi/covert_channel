@@ -33,7 +33,7 @@ def sender(sending_thread_array):
         i += 1
     time.sleep(syncTrial_duration)
 
-def sending()
+def sending():
     # Running as the calibration phase
     sender(callibration_array)
 
@@ -46,7 +46,7 @@ def main():
 
     for i in range(number_of_tests):
         sending()
-        
+
     print("Done!")
 
 if __name__ == '__main__':

@@ -104,7 +104,7 @@ def calibration(callibration_array,callibration_array_size):
     error_ratio = float(err_count)/float(callibration_array_size)
     return T, error_ratio
 
-def transmission(Threshold)
+def transmission(Threshold):
     print "Waiting for synchronization (transmission)..."
     # A synchronization part, should be replaced by a NTP server request.
     while True:                             
