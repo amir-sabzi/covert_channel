@@ -4,7 +4,7 @@ import numpy as np
 
 
 syncTrial_duration = 1
-number_of_tests = 2
+number_of_tests = 16
 delta_1 = 0.12
 delta_2 = 0.05
 byte_num = 128
