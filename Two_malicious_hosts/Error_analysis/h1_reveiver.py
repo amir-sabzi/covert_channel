@@ -172,7 +172,7 @@ def transmission(Threshold):
 def receiving(path_to_log):
     threshold, expected_error = calibration(callibration_array,callibration_array_size)
     nan_counter, zeros_received_one_counter, ones_received_zero_counter, empirical_error = transmission(threshold)
-    log_file.open(path_to_log , "a")
+    log_file = open(path_to_log , "a")
     log_file.write(str(nan_counter)+","+str(zeros_received_one_counter)+","+str(ones_received_zero_counter)+","+str(expected_error)+","+str(empirical_error)+","+str(threshold)+"\n")
     log_file.close()
 
