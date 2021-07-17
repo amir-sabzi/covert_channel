@@ -67,7 +67,7 @@ def calibration(callibration_array,callibration_array_size):
         splitted = string.split('/')
         if len(splitted)> 4:
 
-            trainLog.write(splitted[4] + ',' + callibration_array[i])
+            trainLog.write(splitted[4] + ',' + callibration_array[i] + "\n")
 
             if callibration_array[i] ==  '0' :
                 zeros_delay.append(float(splitted[4]))
@@ -147,7 +147,7 @@ def transmission(Threshold):
         splitted = string.split('/')
         if len(splitted)> 4:
 
-            testLog.write(splitted[4] + ',' + transmission_array[i])
+            testLog.write(splitted[4] + ',' + transmission_array[i] +"\n")
 
             taken_time = float(splitted[4])
             if transmission_array[i] ==  '0' :
