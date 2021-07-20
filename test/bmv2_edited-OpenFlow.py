@@ -531,7 +531,9 @@ class TutorialTopo(Topo):
 
 
 def configure_network(network):
+    h4 = network.get('h4')
     h3 = network.get('h3')
+    h2 = network.get('h2')
     h1 = network.get('h1')
     h1.setIP('10.0.0.100',intf='h1-eth0')
     h3.setIP('10.0.0.200',intf='h3-eth0')
