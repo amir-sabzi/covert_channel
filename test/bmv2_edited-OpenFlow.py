@@ -514,7 +514,7 @@ class TutorialTopo(Topo):
         # hosts attached to s2
         h3 = self.addHost('h3', cls=ONOSHost,)
         # hosts attached to s2
-        h4 = self.addHost('h3', cls=ONOSHost,)
+        h4 = self.addHost('h4', cls=ONOSHost,)
 
         #switch-host links
         for i in range(interface_num):
