@@ -513,6 +513,8 @@ class TutorialTopo(Topo):
         h2 = self.addHost('h2', cls=ONOSHost,)
         # hosts attached to s2
         h3 = self.addHost('h3', cls=ONOSHost,)
+        # hosts attached to s2
+        h4 = self.addHost('h3', cls=ONOSHost,)
 
         #switch-host links
         for i in range(interface_num):
@@ -522,6 +524,7 @@ class TutorialTopo(Topo):
             self.addLink(h1, s1,  params1={'ip' : ip_h1 })
 
         self.addLink(h2, s1,  params1={'ip' : '10.0.0.2/24' })
+        self.addLink(h4, s2,  params1={'ip' : '10.0.0.4/24' })
         #self.addLink(h3, s2)  # port 3
         #self.addLink(h1, s1)  # port 3
         #self.addLink(h2, s1)  # port 4
@@ -545,7 +548,8 @@ def configure_network(network):
         h3.setMAC(mac_h3, intf=int_h3)
         h1.setMAC(mac_h1, intf=int_h1)
         h1.cmd('timeout 0.05 ping -I ' + int_h1 +' 10.0.0.2 -c 1')
-
+    h2.setMAC('00:00:00:00:02:00', intf="h2-eth0")
+    h4.setMAC('00:00:00:00:04:00', intf="h4-eth0")
 
 if __name__ == '__main__':
     setLogLevel('info')
