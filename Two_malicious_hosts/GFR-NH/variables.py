@@ -1,7 +1,7 @@
 import random
 import string 
 
-interface_num = 16
+interface_num = 1
 number_of_tests = 32
 calibration_delta_1 = 0.3
 calibration_delta_2 = 0.3
