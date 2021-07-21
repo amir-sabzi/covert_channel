@@ -17,8 +17,8 @@ delta_1 = 0.12
 delta_2 = 0.05
 train_set_byte_num = 64
 byte_num = 128
-training_message = "x28zQGrukeC3v5nYAIEeXD6p3afEeMYZy6w8P4ZgfpuOtvwsEYyqu8sg8D8MNsHC"
-transmission_message = "7bU4ETM9cciphU280pVqr5UFpeRE8BZpEemmSWzEBMzi3Bxt4P9rtQfIdPhlHCNI1CbHV2bey75NK6sZ8MXDgbI7DR6zQF6vHulUPYp2T98Nn7ur99EALdALozDEMKQP"
+transmission_message = "x28zQGrukeC3v5nYAIEeXD6p3afEeMYZy6w8P4ZgfpuOtvwsEYyqu8sg8D8MNsHC"
+training_message = "7bU4ETM9cciphU280pVqr5UFpeRE8BZpEemmSWzEBMzi3Bxt4P9rtQfIdPhlHCNI1CbHV2bey75NK6sZ8MXDgbI7DR6zQF6vHulUPYp2T98Nn7ur99EALdALozDEMKQP"
 
 callibration_array = transfer_to_desired_format(training_message)
 transmission_array = transfer_to_desired_format(transmission_message)
