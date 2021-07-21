@@ -192,7 +192,7 @@ def receiving(path_to_log):
 
 
 def main():
-    path_to_log = "/home/amirs97/covert_channel/Two_malicious_hosts/Error_analysis/ErrorAnalysis_exp0_lowLoad.txt"
+    path_to_log = "/home/amirs97/covert_channel/Two_malicious_hosts/DNN/ErrorAnalysis_exp0_lowLoad.txt"
     ErrorAnalysis_log = open(path_to_log , "w")
     ErrorAnalysis_log.write("Nan Num,zero received one Num,one received zero Num,Expected Error,Empirical Error,Calculated Threshold" + "\n")
     ErrorAnalysis_log.close()
