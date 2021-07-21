@@ -1,0 +1,2 @@
+Nan Num,zero received one Num,one received zero Num,Expected Error,Empirical Error,Calculated Threshold
+145,39,69,0.558139534884,0.486538461538,8.6
