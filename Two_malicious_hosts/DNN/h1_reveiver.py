@@ -35,7 +35,7 @@ def calibration(callibration_array,callibration_array_size):
             break
     print "Calibration phase running..."
 
-    trainLog = open("/home/amirs97/covert_channel/Two_malicious_hosts/DNN/train_set_mediumLoad.txt" , "w")
+    trainLog = open("/home/amirs97/covert_channel/Two_malicious_hosts/DNN/train_set_highLoad.txt" , "w")
     trainLog.write("RTT,Label" + "\n")
 
     # As I described in the report, after vm-migration, the first try to ping other severs will fail. 
@@ -119,7 +119,7 @@ def transmission(Threshold):
             break
     print "Transmission phase running..."
     
-    testLog = open("/home/amirs97/covert_channel/Two_malicious_hosts/DNN/test_set_mediumLoad.txt" , "w")
+    testLog = open("/home/amirs97/covert_channel/Two_malicious_hosts/DNN/test_set_highLoad.txt" , "w")
     testLog.write("RTT,Label" + "\n")
 
 
@@ -192,7 +192,7 @@ def receiving(path_to_log):
 
 
 def main():
-    path_to_log = "/home/amirs97/covert_channel/Two_malicious_hosts/DNN/ErrorAnalysis_exp0_mediumLoad.txt"
+    path_to_log = "/home/amirs97/covert_channel/Two_malicious_hosts/DNN/ErrorAnalysis_exp0_highLoad.txt"
     ErrorAnalysis_log = open(path_to_log , "w")
     ErrorAnalysis_log.write("Nan Num,zero received one Num,one received zero Num,Expected Error,Empirical Error,Calculated Threshold" + "\n")
     ErrorAnalysis_log.close()
